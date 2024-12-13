@@ -1,0 +1,13 @@
+To solve this, examine the CSS selectors and their specificity.  You can use browser developer tools to inspect the computed styles and identify which selectors are winning. Consider using more specific selectors for the styles that should take precedence or using !important (although this is generally discouraged as it reduces maintainability).  In the case of the example below, adjusting the selector to be more specific or increasing the specificity will resolve the issue.  Here's an example of how to adjust the CSS specificity:
+
+/* Incorrect CSS */
+.my-class { color: blue; }
+#my-id .my-class { color: red; }
+
+/* Correct CSS - More specific selector */
+#my-id .my-class { color: red; }
+.my-class { color: blue; }
+
+/* Correct CSS - !important (use sparingly) */
+.my-class { color: blue !important; }
+#my-id .my-class { color: red; }
